@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "486355708883",
+    "firebase_url": "https://phuclong-7649a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "phuclong-7649a",
+    "storage_bucket": "phuclong-7649a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486355708883:android:8c293f51ab5343a0a79d26",
+        "android_client_info": {
+          "package_name": "com.example.phuclong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486355708883-dcrq9hh2ghsekbdebjqkd7fgl9ps73v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD8_0VmVx0Mr_j9eOK4bGt_Ko6uWBYswU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486355708883-dcrq9hh2ghsekbdebjqkd7fgl9ps73v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486355708883:android:a19316630d329b0ea79d26",
+        "android_client_info": {
+          "package_name": "com.example.phuclong_team02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486355708883-dcrq9hh2ghsekbdebjqkd7fgl9ps73v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD8_0VmVx0Mr_j9eOK4bGt_Ko6uWBYswU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486355708883-dcrq9hh2ghsekbdebjqkd7fgl9ps73v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
