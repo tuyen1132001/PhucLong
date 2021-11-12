@@ -1,7 +1,9 @@
 package com.example.phuclong;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -40,6 +42,7 @@ public class Home extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
+    FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
 
 
     @Override
@@ -62,7 +65,7 @@ public class Home extends AppCompatActivity {
         matching();
         // lay firebase
         database = FirebaseDatabase.getInstance();
-        Reference = database.getReference("Product");
+        Reference = database.getReference("Category");
 
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -94,17 +97,20 @@ public class Home extends AppCompatActivity {
     }
 
     private void loadMenu() {
-        FirebaseRecyclerAdapter<Product,MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Product, MenuViewHolder>(Product.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
+         adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
             @Override
-            protected void populateViewHolder(MenuViewHolder menuViewHolder, Product product, int i) {
-                menuViewHolder.menuname.setText(product.getName());
-                Picasso.with(getBaseContext()).load(product.getImage())
+            protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
+                menuViewHolder.menuname.setText(category.getName());
+                Picasso.with(getBaseContext()).load(category.getImage())
                         .into(menuViewHolder.image);
-                Product item = product;
+                Category item = category;
                 menuViewHolder.setItemclickListener(new ItemClinklistene() {
                     @Override
                     public void onClick(View view, int pos, boolean islongClick) {
-                        Toast.makeText(Home.this,item.getName()+"",Toast.LENGTH_SHORT).show();
+                        // get category id
+                        Intent intent = new Intent(Home.this,Productslist.class);
+                        intent.putExtra("categoryid",adapter.getRef(pos).getKey());
+                        startActivity(intent);
                     }
                 });
             }
@@ -121,8 +127,16 @@ public class Home extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()== R.id.mnu_managerproduct){
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
