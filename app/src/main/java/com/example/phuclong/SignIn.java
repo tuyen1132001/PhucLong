@@ -43,6 +43,7 @@ public class SignIn extends AppCompatActivity {
                             dialog.dismiss();
                             User user = snapshot.child(Phonenumber.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals( Password.getText().toString())){
+                                Common.currentUser = user;
                                 startActivity(new Intent(SignIn.this,Home.class));
                             }
 
