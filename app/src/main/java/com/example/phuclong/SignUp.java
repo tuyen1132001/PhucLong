@@ -38,7 +38,7 @@ public class SignUp extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.child(Phonenumber.getText().toString()).exists()){
                             dialog.dismiss();
-                            Toast.makeText(SignUp.this, "Số điện thoại đã tồn tại", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Số điện thoại đã tồn tại!", Toast.LENGTH_SHORT).show();
                         }else{
                             dialog.dismiss();
                             User user = new User(Password.getText().toString(),Name.getText().toString());
