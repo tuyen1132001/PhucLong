@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,12 +19,13 @@ import com.squareup.picasso.Picasso;
 
 public class ProductDetail extends AppCompatActivity {
 
-    TextView name,price,description;
+    TextView name,price,description,quantitydisplay;
     ImageView image;
     Button order,numberup,numberdown;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String productid ="";
+    String productid,totalprice ="";
+    int quantity = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class ProductDetail extends AppCompatActivity {
                     Picasso.with(getBaseContext()).load(product.getImage()).into(image);
                     name.setText(product.getName());
                     price.setText(product.getPrice());
+                    totalprice = product.getPrice();
                     description.setText(product.getDescription());
                 }
 
@@ -49,12 +53,38 @@ public class ProductDetail extends AppCompatActivity {
                 }
             });
         }
+
+        numberup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity++;
+                quantitydisplay.setText("" + quantity);
+                price.setText((Integer.valueOf(totalprice)*Integer.valueOf(quantitydisplay.getText().toString())) + "");
+
+            }
+
+        });
+        numberdown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(quantity == 0){
+                }else{
+                    quantity--;
+                }
+                quantitydisplay.setText(""+quantity);
+                price.setText((Integer.valueOf(totalprice)*Integer.valueOf(quantitydisplay.getText().toString())) + "");
+
+            }
+        });
+
+
     }
 
     private void matching() {
         name = (TextView) findViewById(R.id.tv_productdetail_name);
         price = (TextView) findViewById(R.id.tv_producdetail_tprice);
         description = (TextView) findViewById(R.id.tv_productdetail_description);
+        quantitydisplay = (TextView) findViewById(R.id.quantityDETAILnUMBER);
         order =(Button) findViewById(R.id.btn_productdetail_order);
         numberdown= (Button) findViewById(R.id.btn_productdetail_down);
         numberup = (Button)findViewById(R.id.btn_productdetail_up);
