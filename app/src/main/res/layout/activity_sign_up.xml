@@ -17,7 +17,9 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282"></ImageView>
+        app:layout_constraintVertical_bias="0.282">
+
+    </ImageView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -27,56 +29,71 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="70dp">
 
         <EditText
             android:id="@+id/et_Phonenumber"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:ems="10"
-            android:hint="Phone Number"
-            android:inputType="textPersonName"
-            android:textColor="#F4F4F4"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:textColor="@color/white"
             android:textColorHint="#ECE8E8"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:layout_margin="10dp"
+            android:maxLength="11"/>
 
         <EditText
             android:id="@+id/et_Name"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:ems="10"
-            android:hint="Name "
-            android:inputType="textPersonName"
-            android:textColor="#ECE8E8"
-            android:textColorHint="#ECE4E4"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:hint="Tên người dùng "
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="#ECE8E8"
+            tools:ignore="TouchTargetSizeCheck"
+            android:layout_margin="10dp"/>
 
         <EditText
             android:id="@+id/et_Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
             android:minHeight="48dp"
-            android:password="true"
-            android:textColor="#E1DCDC"
-            android:textColorHint="#EDE9E9" />
+            android:textColor="@color/white"
+            android:textColorHint="#ECE8E8"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đăng Ký"
+            android:id="@+id/btn_signup"
+            android:textSize="20sp"
+            android:backgroundTint="#397E87"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            app:cornerRadius="12dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Trở Về"
+            android:id="@+id/btn_cancel"
+            android:textSize="20sp"
+            android:backgroundTint="#818f84"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            app:cornerRadius="12dp"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_signup"
-        android:layout_width="122dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="144dp"
-        android:backgroundTint="#397E87"
-        android:text="sign up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.27" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

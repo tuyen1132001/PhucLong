@@ -18,8 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText Phonenumber,Password,Name;
-    Button signup;
+    EditText Phonenumber, Password, Name;
+    Button signup, cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +37,22 @@ public class SignUp extends AppCompatActivity {
                 dataref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.child(Phonenumber.getText().toString()).exists()){
+                        if (Phonenumber.getText().toString().trim().equals("") ||
+                                Name.getText().toString().trim().equals("") ||
+                                Password.getText().toString().trim().equals("")) {
                             dialog.dismiss();
-                            Toast.makeText(SignUp.this, "Số điện thoại đã tồn tại", Toast.LENGTH_SHORT).show();
-                        }else{
-                            dialog.dismiss();
-                            User user = new User(Password.getText().toString(),Name.getText().toString());
-                            dataref.child(Phonenumber.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
-                            finish();
+                            Toast.makeText(SignUp.this, "Vui lòng điền đầy đủ ", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (snapshot.child(Phonenumber.getText().toString()).exists()) {
+                                    dialog.dismiss();
+                                    Toast.makeText(SignUp.this, "Vui lòng nhập đúng SĐT", Toast.LENGTH_SHORT).show();
+                            } else {
+                                dialog.dismiss();
+                                User user = new User(Password.getText().toString(), Name.getText().toString());
+                                dataref.child(Phonenumber.getText().toString()).setValue(user);
+                                Toast.makeText(SignUp.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         }
                     }
 
@@ -56,12 +64,21 @@ public class SignUp extends AppCompatActivity {
 
             }
         });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
     private void matching() {
         Phonenumber = (EditText) findViewById(R.id.et_Phonenumber);
         Password = (EditText) findViewById(R.id.et_Password);
         Name = (EditText) findViewById(R.id.et_Name);
         signup = (Button) findViewById(R.id.btn_signup);
+        cancel = (Button) findViewById(R.id.btn_cancel);
 
     }
 }
