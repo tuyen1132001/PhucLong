@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
+            android:name=".Admin.AddCategory"
+            android:exported="true" />
+        <activity
+            android:name=".Admin.ManageCategory"
+            android:exported="true" />
+        <activity
             android:name=".ProductDetail"
             android:exported="true" />
         <activity

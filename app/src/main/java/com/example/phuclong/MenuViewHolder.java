@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    ItemClinklistene itemClinklistene;
-    TextView menuname;
-    ImageView image;
+    public   ItemClinklistene itemClinklistene;
+    public   TextView menuname;
+    public   ImageView image;
     public MenuViewHolder(@NonNull View itemView) {
         super(itemView);
 

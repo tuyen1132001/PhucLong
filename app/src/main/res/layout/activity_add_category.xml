@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetail">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="@drawable/img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ProductDetail">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="581dp">
+
+                <ImageView
+                    android:id="@+id/im_addcategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="258dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+
+                <TextView
+                    android:id="@+id/tv_addcategory_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/im_addcategory"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Category Name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_addcategoryname"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/im_addcategory"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_toEndOf="@+id/tv_addcategory_name"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:id="@+id/btn_addcategorysave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_addcategoryname"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="146dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="Save" />
+
+                <Button
+                    android:id="@+id/btn_addcategoryuploadimage"
+                    android:layout_width="191dp"
+                    android:layout_height="58dp"
+                    android:layout_below="@id/et_addcategoryname"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginEnd="86dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="image" />
+
+                <Button
+                    android:id="@+id/btn_addcategory_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_addcategoryuploadimage"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_toStartOf="@+id/btn_addcategorysave"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="cancel" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

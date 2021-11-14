@@ -1,17 +1,14 @@
 package com.example.phuclong;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.phuclong.Admin.ManageCategory;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -34,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity{
     TextView Fullname;
     RecyclerView menu;
     FirebaseDatabase database;
@@ -61,11 +58,8 @@ public class Home extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        // Input Firebase;
-        matching();
-        // lay firebase
-        database = FirebaseDatabase.getInstance();
-        Reference = database.getReference("Category");
+
+
 
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -73,15 +67,19 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_Admin, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
         //
- 
+        matching();
+        // lay firebase
+        database = FirebaseDatabase.getInstance();
+        Reference = database.getReference("Category");
 
         menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -90,6 +88,23 @@ public class Home extends AppCompatActivity {
         View view = navigationView.getHeaderView(0);
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
         Fullname.setText(Common.currentUser.getName());
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId()== R.id.nav_admin){
+                    Intent intent=new Intent(Home.this, ManageCategory.class);
+                    startActivity(intent);
+                    finish();
+                }
+                if(item.getItemId()==R.id.nav_home) {
+                    Intent intent=new Intent(Home.this,Home.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+                return false;
+            }
+        });
 
 
 
@@ -100,22 +115,39 @@ public class Home extends AppCompatActivity {
          adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
             @Override
             protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
-                menuViewHolder.menuname.setText(category.getName());
-                Picasso.with(getBaseContext()).load(category.getImage())
-                        .into(menuViewHolder.image);
-                Category item = category;
-                menuViewHolder.setItemclickListener(new ItemClinklistene() {
+                Reference.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onClick(View view, int pos, boolean islongClick) {
-                        // get category id
-                        Intent intent = new Intent(Home.this,Productslist.class);
-                        intent.putExtra("categoryid",adapter.getRef(pos).getKey());
-                        startActivity(intent);
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        menuViewHolder.menuname.setText(category.getName());
+                        Picasso.with(getBaseContext()).load(category.getImage())
+                                .into(menuViewHolder.image);
+                        Category item = category;
+                        Log.d("FIREBASE","loadPost:onCancelled"+item,null);
+
+                        menuViewHolder.setItemclickListener(new ItemClinklistene() {
+                            @Override
+                            public void onClick(View view, int pos, boolean islongClick) {
+                                // get category id
+                                Intent intent = new Intent(Home.this,Productslist.class);
+                                intent.putExtra("categoryid",adapter.getRef(pos).getKey());
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.d("FIREBASE","loadPost:onCancelled",error.toException());
                     }
                 });
+
+
             }
+
         };
+
         menu.setAdapter(adapter);
+
+
 
     }
 
@@ -126,16 +158,12 @@ public class Home extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.home, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()== R.id.mnu_managerproduct){
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
