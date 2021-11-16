@@ -28,21 +28,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="581dp">
-
-                <ImageView
-                    android:id="@+id/im_addcategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="258dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_launcher_background" />
+                android:layout_height="368dp">
 
 
                 <TextView
                     android:id="@+id/tv_addcategory_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/im_addcategory"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="36dp"
@@ -55,7 +47,6 @@
                     android:id="@+id/et_addcategoryname"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/im_addcategory"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="26dp"

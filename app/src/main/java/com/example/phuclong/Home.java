@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.phuclong.Admin.ManageCategory;
+import com.example.phuclong.Admin.Category.ManageCategory;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -84,22 +84,23 @@ public class Home extends AppCompatActivity{
         menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         menu.setLayoutManager(layoutManager);
-        loadMenu();
+        loadcateggory();
         View view = navigationView.getHeaderView(0);
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
         Fullname.setText(Common.currentUser.getName());
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()== R.id.nav_admin){
+                if(item.getItemId()== R.id.nav_managecategory){
                     Intent intent=new Intent(Home.this, ManageCategory.class);
                     startActivity(intent);
-                    finish();
+
                 }
                 if(item.getItemId()==R.id.nav_home) {
                     Intent intent=new Intent(Home.this,Home.class);
                     startActivity(intent);
                     finish();
+
 
                 }
                 return false;
@@ -111,7 +112,7 @@ public class Home extends AppCompatActivity{
 
     }
 
-    private void loadMenu() {
+    private void loadcateggory() {
          adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
             @Override
             protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
@@ -144,7 +145,7 @@ public class Home extends AppCompatActivity{
             }
 
         };
-
+        adapter.notifyDataSetChanged();
         menu.setAdapter(adapter);
 
 
