@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
+            android:name=".Admin.Products.AddProduct"
+            android:exported="true" />
+        <activity
+            android:name=".Admin.Products.Update_DeleteProduct"
+            android:exported="true" />
+        <activity
+            android:name=".Admin.Products.ManageProduct"
+            android:exported="true" />
+        <activity
             android:name=".Admin.Category.Update_DeleteCategory"
             android:exported="true" />
         <activity

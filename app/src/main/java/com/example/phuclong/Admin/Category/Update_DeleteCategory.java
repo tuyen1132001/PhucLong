@@ -59,6 +59,7 @@ public class Update_DeleteCategory extends AppCompatActivity {
             databaseReference.child(Categoryid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                     category = snapshot.getValue(Category.class) ;
                     Picasso.with(getBaseContext()).load(category.getImage()).into(imageView);
                     name.setText(category.getName());

@@ -36,8 +36,6 @@ public class ManageCategory extends AppCompatActivity implements View.OnCreateCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_category);
 
-
-
         database = FirebaseDatabase.getInstance();
         Reference = database.getReference("Category");
 
@@ -68,7 +66,6 @@ public class ManageCategory extends AppCompatActivity implements View.OnCreateCo
                         menuViewHolder.menuname.setText(category.getName());
                         Picasso.with(getBaseContext()).load(category.getImage())
                                 .into(menuViewHolder.image);
-
                         menuViewHolder.setItemclickListener(new ItemClinklistene() {
                             @Override
                             public void onClick(View view, int pos, boolean islongClick) {
@@ -100,6 +97,8 @@ public class ManageCategory extends AppCompatActivity implements View.OnCreateCo
     private void matching() {
         menu = (RecyclerView) findViewById(R.id.rv_menumanagecategory);
         addcategory = (FloatingActionButton) findViewById(R.id.fabtn_AddCategory);
+
+
     }
 
 

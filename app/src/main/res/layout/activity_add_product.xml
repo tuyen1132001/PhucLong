@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Products.AddProduct">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="@drawable/img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ProductDetail">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="647dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="704dp">
+
+
+                <TextView
+                    android:id="@+id/tv_addProduct_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Thêm sản phẩm"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/btn_addproduct_save"
+                    android:layout_width="107dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_addProduct_name"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="526dp"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="Lưu" />
+
+                <EditText
+                    android:id="@+id/et_addproduct_name"
+                    android:layout_width="286dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_addProduct_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="45dp"
+                    android:ems="10"
+                    android:hint="Tên nước"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/et_addproduct_price"
+                    android:layout_width="291dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_addproduct_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="42dp"
+                    android:ems="10"
+                    android:hint="Giá"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/et_addproduct_description"
+                    android:layout_width="283dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_addproduct_discourt"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="38dp"
+                    android:layout_marginTop="41dp"
+                    android:layout_marginEnd="51dp"
+                    android:ems="10"
+                    android:hint="Mô tả"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/et_addproduct_discourt"
+                    android:layout_width="286dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_addproduct_price"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="41dp"
+                    android:layout_marginEnd="46dp"
+                    android:ems="10"
+                    android:hint="Discount"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_addproduct_description"
+                    android:layout_marginTop="33dp"
+                    android:hint="@string/select">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/auto_tvmenulist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/editTextTextPersonName3"
+                        android:layout_marginTop="33dp"
+                        android:inputType="none">
+
+                    </AutoCompleteTextView>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_addproduct_image"
+                    android:layout_width="191dp"
+                    android:layout_height="58dp"
+                    android:layout_below="@+id/et_addproduct_description"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="77dp"
+                    android:layout_marginTop="110dp"
+                    android:layout_marginEnd="104dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="image" />
+
+                <Button
+                    android:id="@+id/btn_addproduct_cancel"
+                    android:layout_width="99dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_addProduct_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="38dp"
+                    android:layout_marginTop="524dp"
+                    android:layout_marginEnd="110dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:layout_toStartOf="@+id/btn_addproduct_save"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="cancel" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

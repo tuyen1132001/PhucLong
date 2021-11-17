@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ProductsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-   TextView product_name,product_price;
-   ImageView product_image;
+   public TextView product_name,product_price;
+   public  ImageView product_image;
    public ItemClinklistene itemClinklistene;
     public ProductsViewHolder(@NonNull View itemView) {
         super(itemView);

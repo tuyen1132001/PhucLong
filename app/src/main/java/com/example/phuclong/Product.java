@@ -1,7 +1,7 @@
 package com.example.phuclong;
 
 public class Product {
-   static String  Name,Image,Description,Price,Discourt,Categoryid;
+    String  Name,Image,Description,Price,Discourt,Categoryid;
     public  Product(){
 
     }
@@ -28,35 +28,34 @@ public class Product {
         Image = image;
     }
 
+    public String getPrice() {
+        return Price;
+    }
+    public void setPrice(String price) {
+        Price = price;
+    }
+
     public String getDescription() {
         return Description;
+    }
+    public void setDescription(String description) {
+        Description = description;
     }
 
     public String getCategoryid() {
         return Categoryid;
+    }
+    public void setCategoryid(String categoryid) {
+        Categoryid = categoryid;
     }
 
     public String getDiscourt() {
         return Discourt;
     }
 
-    public String getPrice() {
-        return Price;
-    }
-
-    public void setCategoryid(String categoryid) {
-        Categoryid = categoryid;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
     public void setDiscourt(String discourt) {
         Discourt = discourt;
     }
 
-    public void setPrice(String price) {
-        Price = price;
-    }
+
 }

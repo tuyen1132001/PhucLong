@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.phuclong.Admin.Category.ManageCategory;
+import com.example.phuclong.Admin.Products.ManageProduct;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -87,7 +88,8 @@ public class Home extends AppCompatActivity{
         loadcateggory();
         View view = navigationView.getHeaderView(0);
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
-        Fullname.setText(Common.currentUser.getName());
+
+      //  Fullname.setText(Common.currentUser.getName());
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -95,6 +97,10 @@ public class Home extends AppCompatActivity{
                     Intent intent=new Intent(Home.this, ManageCategory.class);
                     startActivity(intent);
 
+                }
+                if(item.getItemId()==R.id.nav_manageproduct){
+                    Intent intent=new Intent(Home.this, ManageProduct.class);
+                    startActivity(intent);
                 }
                 if(item.getItemId()==R.id.nav_home) {
                     Intent intent=new Intent(Home.this,Home.class);
