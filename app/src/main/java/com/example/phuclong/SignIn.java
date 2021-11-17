@@ -1,8 +1,5 @@
 package com.example.phuclong;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,9 +42,12 @@ public class SignIn extends AppCompatActivity {
                             // Get user inf
                             dialog.dismiss();
                             User user = snapshot.child(Phonenumber.getText().toString()).getValue(User.class);
+                            user.setPhone(Phonenumber.getText().toString());
                             if (user.getPassword().equals( Password.getText().toString())){
                                 Common.currentUser = user;
-                                startActivity(new Intent(SignIn.this,Home.class));
+                                Intent intent = new Intent(SignIn.this,Home.class);
+                                intent.putExtra("IDUser",Phonenumber.getText().toString());
+                                startActivity(intent);
                             }
 
                             else

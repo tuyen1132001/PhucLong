@@ -1,14 +1,12 @@
 package com.example.phuclong;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -22,10 +20,14 @@ public class Productslist extends AppCompatActivity {
     DatabaseReference reference;
     String Categoryid="";
     FirebaseRecyclerAdapter<Product,ProductsViewHolder> adapter;
+    String iduser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productslist);
+        Bundle bundle = getIntent().getExtras();
+        iduser = bundle.getString("IDUser");
         database= FirebaseDatabase.getInstance();
         reference= database.getReference("Products");
         matching();
@@ -52,6 +54,7 @@ public class Productslist extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int pos, boolean islongClick) {
                         Intent intent = new Intent(Productslist.this,ProductDetail.class);
+                        intent.putExtra("IDUser",iduser);
                         intent.putExtra("productid",adapter.getRef(pos).getKey());
                         startActivity(intent);
                     }

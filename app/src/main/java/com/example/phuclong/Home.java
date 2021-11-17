@@ -1,37 +1,28 @@
 package com.example.phuclong;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.phuclong.databinding.ActivityHomeBinding;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class Home extends AppCompatActivity {
@@ -40,9 +31,11 @@ public class Home extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference Reference;
     RecyclerView.LayoutManager layoutManager;
+    FloatingActionButton fab;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
     FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
+    String iduser;
 
 
     @Override
@@ -57,11 +50,14 @@ public class Home extends AppCompatActivity {
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(Home.this,Cart.class);
+                startActivity(cartIntent);
             }
         });
         // Input Firebase;
+        Bundle bundle = getIntent().getExtras();
+        iduser = bundle.getString("IDUser");
+
         matching();
         // lay firebase
         database = FirebaseDatabase.getInstance();
@@ -91,10 +87,21 @@ public class Home extends AppCompatActivity {
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
         Fullname.setText(Common.currentUser.getName());
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Cart.class);
+                intent.putExtra("cartid",iduser);
+                startActivity(intent);
+            }
+        });
+
 
 
 
     }
+
+
 
     private void loadMenu() {
          adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
@@ -109,6 +116,7 @@ public class Home extends AppCompatActivity {
                     public void onClick(View view, int pos, boolean islongClick) {
                         // get category id
                         Intent intent = new Intent(Home.this,Productslist.class);
+                        intent.putExtra("IDUser",iduser);
                         intent.putExtra("categoryid",adapter.getRef(pos).getKey());
                         startActivity(intent);
                     }
@@ -119,8 +127,10 @@ public class Home extends AppCompatActivity {
 
     }
 
+
     private void matching() {
         menu = (RecyclerView) findViewById(R.id.rv_menu);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
     }
 
     @Override

@@ -1,14 +1,15 @@
 package com.example.phuclong;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,10 +27,17 @@ public class ProductDetail extends AppCompatActivity {
     DatabaseReference reference;
     String productid,totalprice ="";
     int quantity = 0;
+    Product currentProduct;
+    String iduser;
+    String idgh = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+        Bundle bundle = getIntent().getExtras();
+        iduser = bundle.getString("IDUser");
         matching();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Products");
@@ -39,12 +47,12 @@ public class ProductDetail extends AppCompatActivity {
             reference.child(productid).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Product product= snapshot.getValue(Product.class);
-                    Picasso.with(getBaseContext()).load(product.getImage()).into(image);
-                    name.setText(product.getName());
-                    price.setText(product.getPrice());
-                    totalprice = product.getPrice();
-                    description.setText(product.getDescription());
+                    currentProduct= snapshot.getValue(Product.class);
+                    Picasso.with(getBaseContext()).load(currentProduct.getImage()).into(image);
+                    name.setText(currentProduct.getName());
+                    price.setText(currentProduct.getPrice());
+                    totalprice = currentProduct.getPrice();
+                    description.setText(currentProduct.getDescription());
                 }
 
                 @Override
@@ -76,7 +84,59 @@ public class ProductDetail extends AppCompatActivity {
 
             }
         });
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase databasee = FirebaseDatabase.getInstance();
+                DatabaseReference referencee = databasee.getReference("Cart");
 
+                referencee.child(iduser).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.getValue() == null) {
+                            referencee.child(iduser).child("0").child("ProductName").setValue(name.getText().toString());
+                            referencee.child(iduser).child("0").child("Quantity").setValue(quantitydisplay.getText().toString());
+                            referencee.child(iduser).child("0").child("Price").setValue(price.getText().toString());
+
+                        } else {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                idgh = dataSnapshot.getKey();
+
+                            }
+
+                            referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("ProductName").setValue(name.getText().toString());
+                            referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("Quantity").setValue(quantitydisplay.getText().toString());
+                            referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("Price").setValue(price.getText().toString());
+                            Toast.makeText(ProductDetail.this,"Thêm vào giỏ hàng thành công",Toast.LENGTH_SHORT).show();
+                        }
+                        Intent intent = new Intent(ProductDetail.this,Cart.class);
+                        intent.putExtra("cartid",iduser);
+                        startActivity(intent);
+                    }
+
+
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+//                new Database(getBaseContext()).addToCart(new Order(
+//                        productid,
+//                        currentProduct.getName(),
+//                        quantitydisplay.toString(),
+//                        currentProduct.getPrice(),
+//                        currentProduct.getDiscourt()
+//
+//                ));
+//
+//                Toast.makeText(ProductDetail.this,"Thêm vào giỏ hàng thành công",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 
