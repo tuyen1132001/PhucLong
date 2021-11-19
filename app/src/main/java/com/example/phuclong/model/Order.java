@@ -6,18 +6,37 @@ public class Order {
      String ProductName;
      String Quantity;
      String Price;
-     String Discount;
+     String IdCart;
+     String id;
 
 
 
-    public Order( String productName, String image, String quantity, String price, String discount) {
+    public Order( String productName, String image, String quantity, String price, String idCart, String id) {
         ProductName = productName;
         Image = image;
         Quantity = quantity;
         Price = price;
-        Discount = discount;
+        IdCart = idCart;
+
+        this.id = id;
+
     }
 
+    public String getIdCart() {
+        return IdCart;
+    }
+
+    public void setIdCart(String idCart) {
+        IdCart = idCart;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getImage() {
         return Image;
@@ -49,11 +68,5 @@ public class Order {
         Price = price;
     }
 
-    public String getDiscount() {
-        return Discount;
-    }
 
-    public void setDiscount(String discount) {
-        Discount = discount;
-    }
 }

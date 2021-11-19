@@ -25,6 +25,7 @@ public class ProductDetail extends AppCompatActivity {
     Button order,numberup,numberdown;
     FirebaseDatabase database;
     DatabaseReference reference;
+
     String productid,totalprice ="";
     int quantity = 0;
     Product currentProduct;
@@ -95,6 +96,7 @@ public class ProductDetail extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.getValue() == null) {
                             referencee.child(iduser).child("0").child("ProductName").setValue(name.getText().toString());
+                            referencee.child(iduser).child("0").child("Image").setValue(currentProduct.getImage());
                             referencee.child(iduser).child("0").child("Quantity").setValue(quantitydisplay.getText().toString());
                             referencee.child(iduser).child("0").child("Price").setValue(price.getText().toString());
 
@@ -105,6 +107,7 @@ public class ProductDetail extends AppCompatActivity {
                             }
 
                             referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("ProductName").setValue(name.getText().toString());
+                            referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("Image").setValue(currentProduct.getImage());
                             referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("Quantity").setValue(quantitydisplay.getText().toString());
                             referencee.child(iduser).child((Integer.valueOf(idgh) + 1)+"").child("Price").setValue(price.getText().toString());
                             Toast.makeText(ProductDetail.this,"Thêm vào giỏ hàng thành công",Toast.LENGTH_SHORT).show();

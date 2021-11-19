@@ -1,6 +1,7 @@
 package com.example.phuclong.ui;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.example.phuclong.R;
 public class CartViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView product_namee,product_pricee,product_quantity;
     public ImageView product_imagee;
+    public Button giam, tang, xoa;
     public ItemClinklistene itemClinklistene;
     public CartViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -19,10 +21,14 @@ public class CartViewHolder  extends RecyclerView.ViewHolder implements View.OnC
         itemView.setOnClickListener(this);
     }
 
+
     private void matching() {
         product_namee = (TextView) itemView.findViewById(R.id.tv_productnamee);
         product_quantity = (TextView) itemView.findViewById(R.id.tv_productquantityy);
         product_imagee = (ImageView)itemView.findViewById(R.id.im_productsimagee);
+        giam = (Button) itemView.findViewById(R.id.btn_giam);
+        tang = (Button) itemView.findViewById(R.id.btn_tang);
+        xoa = (Button) itemView.findViewById(R.id.btn_xoa);
         product_pricee = (TextView)itemView.findViewById(R.id.tv_productpricee);
     }
 

@@ -2,6 +2,7 @@ package com.example.phuclong;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,8 +31,10 @@ public class Cart extends AppCompatActivity {
     DatabaseReference reference;
 
     TextView TotalPrice;
+    int Tongtien = 0;
     Button Place;
     String cartId = "";
+    ImageView image;
     RecyclerView.Adapter adapter;
 
 
@@ -53,7 +56,10 @@ public class Cart extends AppCompatActivity {
             cartId = getIntent().getStringExtra("cartid");
         if (!cartId.isEmpty() && cartId != null) {
             loadlistProduct(cartId);
+
+
         }
+
 
     }
 
@@ -65,17 +71,24 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String[] data = snapshot.getValue().toString().split("[}],");
+                String Key = "";
+                String id = "";
 
-                for (int i = 0; i < data.length - 1; i++) {
-                    String name = data[i].substring(data[i].indexOf("ProductName=") + 12, data[i].indexOf(", Price="));
-                    String gia = data[i].substring(data[i].indexOf("Price=") + 6, data[i].indexOf(", Quantity="));
-                    String soluong = data[i].substring(data[i].indexOf("Quantity=") + 9);
-                    listcart.add(new Order(name, "", soluong, gia, ""));
+                for(DataSnapshot datas: snapshot.getChildren()){
+                    id = datas.getKey();
+                    Key = datas.getValue().toString();
+                    String name = Key.substring(Key.indexOf("ProductName=") + 12, Key.indexOf(", Price"));
+                    String gia = Key.substring(Key.indexOf("Price=") + 6,Key.indexOf(", Quantity="));
+                    String soluong = Key.substring(Key.indexOf("Quantity=") + 9, Key.indexOf(", Image="));
+                    String image = Key.substring(Key.indexOf("Image=") + 6);
+                    listcart.add(new Order(name, image, soluong, gia, cartId,id+""));
                     adapter = new CartAdapter(listcart, Cart.this);
                     recyclerView.setAdapter(adapter);
-
                 }
+
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -123,6 +136,8 @@ public class Cart extends AppCompatActivity {
 
     private void matching() {
         recyclerView = (RecyclerView) findViewById(R.id.listCart);
+        TotalPrice = (TextView) findViewById(R.id.tv_tongtien);
+        image = (ImageView) findViewById(R.id.im_productsimagee);
 
 
     }

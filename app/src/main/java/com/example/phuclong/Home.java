@@ -87,6 +87,7 @@ public class Home extends AppCompatActivity {
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
         Fullname.setText(Common.currentUser.getName());
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
