@@ -4,64 +4,118 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText Phonenumber,Password,Name;
-    Button signup;
+    EditText Email, Password, Name, Phone;
+    Button signup, cancel;
+    FirebaseAuth auth;
+    FirebaseFirestore store;
+    boolean valid = true;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        auth = FirebaseAuth.getInstance();
+        store = FirebaseFirestore.getInstance();
+
         matching();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference dataref = database.getReference("User");
+
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ProgressDialog dialog = new ProgressDialog(SignUp.this);
-                dialog.setMessage("Vui long cho..");
-                dialog.show();
-                dataref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.child(Phonenumber.getText().toString()).exists()){
-                            dialog.dismiss();
-                            Toast.makeText(SignUp.this, "Số điện thoại đã tồn tại", Toast.LENGTH_SHORT).show();
-                        }else{
-                            dialog.dismiss();
-                            User user = new User(Password.getText().toString(),Name.getText().toString());
-                            dataref.child(Phonenumber.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                checkField(Email);
+                checkField(Name);
+                checkField(Phone);
+                checkField(Password);
+
+                if (valid) {
+                    auth.createUserWithEmailAndPassword(Email.getText().toString(), Password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            FirebaseUser user = auth.getCurrentUser();
+                            Toast.makeText(SignUp.this, "Tài khoản tạo thành công", Toast.LENGTH_SHORT).show();
+
+                            DocumentReference df = store.collection("Users").document(user.getUid());
+                            Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("Email", Email.getText().toString().trim());
+                            userInfo.put("Name", Name.getText().toString().trim());
+                            userInfo.put("Phone", Phone.getText().toString().trim());
+                            userInfo.put("Password", Password.getText().toString().trim());
+
+                            userInfo.put("User", "user");
+
+                            df.set(userInfo);
+
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
                         }
-                    }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUp.this, "Tạo tài khoản thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
-    private void matching() {
-        Phonenumber = (EditText) findViewById(R.id.et_Phonenumber);
-        Password = (EditText) findViewById(R.id.et_Password);
-        Name = (EditText) findViewById(R.id.et_Name);
-        signup = (Button) findViewById(R.id.btn_signup);
 
+    public boolean checkField(EditText textField) {
+        if (textField.getText().toString().isEmpty()) {
+            textField.setError("Vui lòng điền thông tin");
+            valid = false;
+        } else {
+            valid = true;
+        }
+        return valid;
+    }
+
+
+    private void matching() {
+        Email = (EditText) findViewById(R.id.et_signup_email);
+        Password = (EditText) findViewById(R.id.et_signup_Password);
+        Name = (EditText) findViewById(R.id.et_signup_Name);
+        Phone = (EditText) findViewById(R.id.et_signup_Phonenumber);
+        signup = (Button) findViewById(R.id.btn_signup);
+        cancel = (Button) findViewById(R.id.btn_signup_cancel);
     }
 }

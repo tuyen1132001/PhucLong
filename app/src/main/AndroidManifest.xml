@@ -29,6 +29,9 @@
         <activity
             android:name=".Admin.Category.ManageCategory"
             android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".Admin"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ProductDetail"
             android:exported="true" />
