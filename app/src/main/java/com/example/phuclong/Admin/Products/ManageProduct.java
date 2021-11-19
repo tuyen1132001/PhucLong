@@ -10,9 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.phuclong.Admin.Category.AddCategory;
-import com.example.phuclong.Admin.Category.ManageCategory;
-import com.example.phuclong.Admin.Category.Update_DeleteCategory;
 import com.example.phuclong.ItemClinklistene;
 import com.example.phuclong.Product;
 import com.example.phuclong.ProductsViewHolder;
@@ -25,8 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 public class ManageProduct extends AppCompatActivity {
     RecyclerView productlist;

@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class Admin extends AppCompatActivity {
+public class Admins extends AppCompatActivity {
 
     Button logOut;
     ListView lvUser;
