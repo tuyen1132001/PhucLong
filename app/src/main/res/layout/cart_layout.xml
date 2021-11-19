@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+
+        <ImageView
+            android:id="@+id/im_productsimagee"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_productnamee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+
+            android:layout_toRightOf="@id/im_productsimagee"
+            android:text="Coffee Name"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_productpricee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_productnamee"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@id/im_productsimagee"
+            android:text="TextView"
+            android:textColor="#009688"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_productquantityy"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_below="@+id/tv_productpricee"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_toEndOf="@+id/btn_giam"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btn_giam"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_productpricee"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/im_productsimagee"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/btn_tang"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_productpricee"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/tv_productquantityy"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/btn_xoa"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/btn_tang"
+            android:text="Xóa" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
