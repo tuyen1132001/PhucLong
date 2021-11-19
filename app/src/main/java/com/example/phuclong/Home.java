@@ -89,7 +89,7 @@ public class Home extends AppCompatActivity {
         loadMenu();
         View view = navigationView.getHeaderView(0);
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
-        Fullname.setText(Common.currentUser.getName());
+//        Fullname.setText(Common.currentUser.getName());
 
 
 

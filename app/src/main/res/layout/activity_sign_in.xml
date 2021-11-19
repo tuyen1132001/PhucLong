@@ -33,20 +33,19 @@
         android:paddingTop="40dp">
 
         <EditText
-            android:id="@+id/et_Phonenumber"
+            android:id="@+id/et_signIn_Email"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:ems="10"
-            android:hint="Số điện thoại"
-            android:inputType="phone"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="#ECE8E8"
             tools:ignore="TouchTargetSizeCheck"
-            android:layout_margin="10dp"
-            android:maxLength="10"/>
+            android:layout_margin="10dp"/>
 
         <EditText
-            android:id="@+id/et_Password"
+            android:id="@+id/et_signIn_Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -61,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Đăng nhập"
-            android:id="@+id/btn_signin"
+            android:id="@+id/btn_signIn"
             android:textSize="20sp"
             android:backgroundTint="#397E87"
             android:textColor="@color/white"
@@ -73,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Trở Về"
-            android:id="@+id/btn_cancel"
+            android:id="@+id/btn_signIn_cancel"
             android:textSize="20sp"
             android:backgroundTint="#818f84"
             android:textColor="@color/white"

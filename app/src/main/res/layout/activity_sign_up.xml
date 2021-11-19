@@ -30,23 +30,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:paddingTop="70dp">
+        android:paddingTop="150dp">
 
         <EditText
-            android:id="@+id/et_Phonenumber"
+            android:id="@+id/et_signup_email"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:ems="10"
-            android:hint="Số điện thoại"
-            android:inputType="phone"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="#ECE8E8"
             tools:ignore="TouchTargetSizeCheck"
-            android:layout_margin="10dp"
-            android:maxLength="11"/>
+            android:layout_margin="10dp" />
 
         <EditText
-            android:id="@+id/et_Name"
+            android:id="@+id/et_signup_Name"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:ems="10"
@@ -58,16 +57,29 @@
             android:layout_margin="10dp"/>
 
         <EditText
-            android:id="@+id/et_Password"
+            android:id="@+id/et_signup_Phonenumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
+            android:ems="10"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            android:textColorHint="#ECE8E8"
+            tools:ignore="TouchTargetSizeCheck"
+            android:layout_margin="10dp"
+            android:maxLength="10"/>
+
+        <EditText
+            android:id="@+id/et_signup_Password"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
             android:ems="10"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
-            android:minHeight="48dp"
             android:textColor="@color/white"
             android:textColorHint="#ECE8E8"
-            android:layout_margin="10dp"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:layout_margin="10dp" />
 
         <Button
             android:layout_width="match_parent"
@@ -85,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Trở Về"
-            android:id="@+id/btn_cancel"
+            android:id="@+id/btn_signup_cancel"
             android:textSize="20sp"
             android:backgroundTint="#818f84"
             android:textColor="@color/white"
