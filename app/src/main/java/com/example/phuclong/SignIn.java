@@ -79,7 +79,10 @@ public class SignIn extends AppCompatActivity {
                     finish();
                 }
                 if (documentSnapshot.getString("User") != null) {
-                    startActivity(new Intent(SignIn.this, Home.class));
+                    Intent intent = new Intent(SignIn.this,Home.class);
+                    intent.putExtra("IDUser",uid);
+                    startActivity(intent);
+
                 }
             }
         });

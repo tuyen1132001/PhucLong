@@ -25,17 +25,21 @@ public class Productslist extends AppCompatActivity {
     FirebaseDatabase database ;
     DatabaseReference reference;
     String Categoryid="";
+    String iduser = "";
     FirebaseRecyclerAdapter<Product,ProductsViewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productslist);
+        Bundle bundle = getIntent().getExtras();
+        iduser = bundle.getString("IDUser");
         database= FirebaseDatabase.getInstance();
         reference= database.getReference("Products");
         matching();
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
 
         if(getIntent()!=null)
             Categoryid = getIntent().getStringExtra("categoryid");
@@ -59,6 +63,7 @@ public class Productslist extends AppCompatActivity {
                             @Override
                             public void onClick(View view, int pos, boolean islongClick) {
                                 Intent intent = new Intent(Productslist.this,ProductDetail.class);
+                                intent.putExtra("IDUser",iduser);
                                 intent.putExtra("productid",adapter.getRef(pos).getKey());
                                 startActivity(intent);
                             }

@@ -12,6 +12,7 @@ import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Admin.Products.ManageProduct;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,12 +37,15 @@ import com.squareup.picasso.Picasso;
 public class Home extends AppCompatActivity{
     TextView Fullname;
     RecyclerView menu;
+    FloatingActionButton fab;
+
     FirebaseDatabase database;
     DatabaseReference Reference;
     RecyclerView.LayoutManager layoutManager;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
     FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
+    String iduser = "";
 
 
     @Override
@@ -56,12 +60,15 @@ public class Home extends AppCompatActivity{
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(Home.this,Cart.class);
+
+                startActivity(cartIntent);
             }
         });
+        Bundle bundle = getIntent().getExtras();
+        iduser = bundle.getString("IDUser");
 
-
+        matching();
 
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -78,7 +85,7 @@ public class Home extends AppCompatActivity{
 
 
         //
-        matching();
+
         // lay firebase
         database = FirebaseDatabase.getInstance();
         Reference = database.getReference("Category");
@@ -91,6 +98,15 @@ public class Home extends AppCompatActivity{
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
 
       //  Fullname.setText(Common.currentUser.getName());
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Cart.class);
+                intent.putExtra("cartid",iduser);
+                startActivity(intent);
+            }
+        });
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -137,6 +153,7 @@ public class Home extends AppCompatActivity{
                             public void onClick(View view, int pos, boolean islongClick) {
                                 // get category id
                                 Intent intent = new Intent(Home.this,Productslist.class);
+                                intent.putExtra("IDUser",iduser);
                                 intent.putExtra("categoryid",adapter.getRef(pos).getKey());
                                 startActivity(intent);
                             }
@@ -161,6 +178,8 @@ public class Home extends AppCompatActivity{
 
     private void matching() {
         menu = (RecyclerView) findViewById(R.id.rv_menu);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
     }
 
     @Override
