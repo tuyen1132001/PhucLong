@@ -73,7 +73,7 @@ public class SignUp extends AppCompatActivity {
                             userInfo.put("Phone", Phone.getText().toString().trim());
                             userInfo.put("Password", Password.getText().toString().trim());
 
-                            userInfo.put("User", "user");
+                            userInfo.put("User", 1);
 
                             df.set(userInfo);
 
