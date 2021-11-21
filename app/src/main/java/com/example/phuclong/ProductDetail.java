@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.phuclong.model.Order;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,6 +89,7 @@ public class ProductDetail extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 FirebaseDatabase databasee = FirebaseDatabase.getInstance();
                 DatabaseReference referencee = databasee.getReference("Cart");
 
