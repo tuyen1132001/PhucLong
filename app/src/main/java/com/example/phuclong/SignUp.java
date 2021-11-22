@@ -73,9 +73,15 @@ public class SignUp extends AppCompatActivity {
                             userInfo.put("Phone", Phone.getText().toString().trim());
                             userInfo.put("Password", Password.getText().toString().trim());
 
-                            userInfo.put("User", 1);
+                            userInfo.put("User", "1");
 
                             df.set(userInfo);
+
+                            DatabaseReference dbInfor = FirebaseDatabase.getInstance().getReference("InforUser");
+                            dbInfor.child(user.getUid()).child("Email").setValue(Email.getText().toString().trim());
+                            dbInfor.child(user.getUid()).child("Name").setValue(Name.getText().toString().trim());
+                            dbInfor.child(user.getUid()).child("Phone").setValue(Phone.getText().toString().trim());
+                            dbInfor.child(user.getUid()).child("Role").setValue("User");
 
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();

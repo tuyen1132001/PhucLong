@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
+            android:name=".ManagerInforCustomerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileUserActivity"
+            android:exported="true" />
+        <activity
             android:name=".Cart"
             android:exported="true" />
         <activity
@@ -31,10 +37,9 @@
             android:exported="true" />
         <activity
             android:name=".Admin.Category.ManageCategory"
-            android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".Admin"-->
-<!--            android:exported="false" />-->
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".Admin" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".ProductDetail"
             android:exported="true" />

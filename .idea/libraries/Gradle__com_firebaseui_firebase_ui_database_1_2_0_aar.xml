@@ -11,6 +11,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/139d5a4da932b22fe3f68edaa06a1958/transformed/jetified-firebase-ui-database-1.2.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/139d5a4da932b22fe3f68edaa06a1958/transformed/jetified-firebase-ui-database-1.2.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/139d5a4da932b22fe3f68edaa06a1958/transformed/jetified-firebase-ui-database-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c7f05618bd70fdf3838add8cf9dba65d/transformed/jetified-firebase-ui-database-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c7f05618bd70fdf3838add8cf9dba65d/transformed/jetified-firebase-ui-database-1.2.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c7f05618bd70fdf3838add8cf9dba65d/transformed/jetified-firebase-ui-database-1.2.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/1.2.0/be901f0f40fc2aa67aaf86220a4b48bf197c4296/firebase-ui-database-1.2.0-javadoc.jar!/" />

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context=".ProfileUserActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="699dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+                app:cardCornerRadius="12dp">
+
+                <Button
+                    android:id="@+id/btn_pf_edit"
+                    android:layout_width="290dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="#005E55"
+                    android:text="chỉnh sửa thông tin"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.475"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btn_pf_huy"
+                    android:layout_width="135dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="#005E55"
+                    android:text="HỦY"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btn_pf_luu"
+                    android:layout_width="135dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="#005E55"
+                    android:text="LƯU"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.847"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <EditText
+                    android:id="@+id/et_pf_diachi"
+                    android:layout_width="290dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="3dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Địa chỉ"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="6dp"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="289dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:requiresFadingEdge="horizontal"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.483"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_thang">
+
+                    <RadioButton
+                        android:id="@+id/rdo_pf_nam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="#E2D2FF"
+                        android:text="Nam" />
+
+                    <RadioButton
+                        android:id="@+id/rdo_pf_nu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="#E2D2FF"
+                        android:fadingEdge="vertical"
+                        android:text="Nữ" />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/et_pf_namsinh"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Năm sinh"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.727"
+                    app:layout_constraintStart_toEndOf="@+id/et_pf_thang"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_email" />
+
+                <EditText
+                    android:id="@+id/et_pf_ngay"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Ngày"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/et_pf_email"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_email" />
+
+                <EditText
+                    android:id="@+id/et_pf_thang"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Tháng"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/et_pf_ngay"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_email" />
+
+                <EditText
+                    android:id="@+id/et_pf_hoten"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Họ và Tên"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_avatar_profile" />
+
+                <EditText
+                    android:id="@+id/et_pf_email"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_sdt" />
+
+                <EditText
+                    android:id="@+id/et_pf_sdt"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="#E2D2FF"
+                    android:ems="10"
+                    android:hint="Số điện thoại"
+                    android:inputType="phone"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_hoten" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_avatar_profile"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:civ_border_color="#8F8F8F"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="__________________________________________"
+                    android:textColor="#A8A8A8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="__________________________________________"
+                    android:textColor="#A8A8A8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_pf_diachi" />
+
+                <ImageView
+                    android:id="@+id/img_profile_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.015"
+                    app:srcCompat="@drawable/quaylai" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="THÔNG TIN CÁ NHÂN"
+                    android:textColor="#005E55"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_change_profile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_avatar_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/img_avatar_profile"
+                    app:srcCompat="@drawable/camera" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,13 +17,17 @@
     <item android:title="Admin">
         <menu>
             <item
+                android:id="@+id/nav_manageproduct"
+                android:icon="@drawable/ic_baseline_coffee_24"
+                android:title="Quản lí sản phẩm" />
+            <item
                 android:id="@+id/nav_managecategory"
                 android:icon="@drawable/ic_baseline_widgets_24"
                 android:title="Quản lí danh mục" />
             <item
-                android:id="@+id/nav_manageproduct"
-                android:icon="@drawable/ic_baseline_coffee_24"
-                android:title="Quản lí sản phẩm" />
+                android:id="@+id/nav_inforcustomer"
+                android:icon="@drawable/ic_baseline_account_circle_24"
+                android:title="Quản lí thông tin khách hàng" />
         </menu>
 
     </item>
