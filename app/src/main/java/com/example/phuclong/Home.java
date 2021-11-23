@@ -9,11 +9,11 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.phuclong.Admin.Category.ManageCategory;
+import com.example.phuclong.Admin.InfoUser.ManagerInforCustomerActivity;
 import com.example.phuclong.Admin.Products.ManageProduct;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -110,30 +110,15 @@ public class Home extends AppCompatActivity{
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()== R.id.nav_managecategory){
-                    Intent intent=new Intent(Home.this, ManageCategory.class);
-                    startActivity(intent);
-
-                }
-                if(item.getItemId()==R.id.nav_manageproduct){
-                    Intent intent=new Intent(Home.this, ManageProduct.class);
-                    startActivity(intent);
-                }
-                if(item.getItemId()==R.id.nav_home) {
+                if(item.getItemId()== R.id.nav_home) {
                     Intent intent=new Intent(Home.this,Home.class);
                     startActivity(intent);
                     finish();
-
-
                 }
-                if(item.getItemId()==R.id.nav_Account) {
+                if(item.getItemId()== R.id.nav_Account) {
                     Intent intent=new Intent(Home.this,ProfileUserActivity.class);
                     intent.putExtra("Userid",iduser);
                     intent.putExtra("View", "User");
-                    startActivity(intent);
-                }
-                if(item.getItemId()==R.id.nav_inforcustomer) {
-                    Intent intent=new Intent(Home.this,ManagerInforCustomerActivity.class);
                     startActivity(intent);
                 }
                 return false;

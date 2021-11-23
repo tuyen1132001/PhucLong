@@ -46,6 +46,19 @@
         <entry key="..\:/Users/Admin/Desktop/PhucLong1/app/src/main/res/layout/products_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Admin/Desktop/PhucLong1/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Admin/Desktop/PhucLong1/app/src/main/res/menu/home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/activity_home.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/activity_manage_order.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/app_bar_administrator.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/content_administrator.xml" value="0.264" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_admin.xml" value="0.1" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_gallery_admin.xml" value="0.1" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_slideshow_admin.xml" value="0.1" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/nav_header_administrator.xml" value="0.2" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/layout/nav_header_home.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/menu/activity_administrator_drawer.xml" value="0.4" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/menu/administrator.xml" value="0.1" />
+        <entry key="..\:/Users/Hi/AndroidStudioProjects/Project/app/src/main/res/menu/home.xml" value="0.25" />
       </map>
     </option>
   </component>

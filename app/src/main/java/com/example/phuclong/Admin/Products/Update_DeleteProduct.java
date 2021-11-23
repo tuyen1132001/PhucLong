@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.phuclong.Admin.Category.AddCategory;
+import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Product;
 import com.example.phuclong.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -84,6 +86,7 @@ public class Update_DeleteProduct extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(Update_DeleteProduct.this, ManageProduct.class));
                 finish();
             }
         });

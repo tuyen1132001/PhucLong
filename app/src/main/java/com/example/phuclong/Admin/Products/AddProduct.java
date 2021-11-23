@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.phuclong.Admin.Category.AddCategory;
+import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Product;
 import com.example.phuclong.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -63,6 +65,7 @@ public class AddProduct extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(AddProduct.this, ManageProduct.class));
                 finish();
             }
         });

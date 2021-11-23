@@ -77,6 +77,7 @@ public class Update_DeleteCategory extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(Update_DeleteCategory.this, ManageCategory.class));
                 finish();
             }
         });

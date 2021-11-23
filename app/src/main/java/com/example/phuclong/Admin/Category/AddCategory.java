@@ -49,6 +49,7 @@ public class AddCategory extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(AddCategory.this, ManageCategory.class));
                 finish();
             }
         });

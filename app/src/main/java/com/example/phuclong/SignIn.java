@@ -75,7 +75,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.getString("Admin") != null) {
-                    startActivity(new Intent(SignIn.this, Admins.class));
+                    startActivity(new Intent(SignIn.this, Administrator.class));
                     finish();
                 }
                 if (documentSnapshot.getString("User") != null) {

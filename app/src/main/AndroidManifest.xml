@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
-            android:name=".ManagerInforCustomerActivity"
+            android:name=".Admin.Order.ManageOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Administrator"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Cart.ManageCart"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.InfoUser.ManagerInforCustomerActivity"
             android:exported="true" />
         <activity
             android:name=".ProfileUserActivity"
