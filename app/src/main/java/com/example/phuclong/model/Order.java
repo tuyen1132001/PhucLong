@@ -11,9 +11,9 @@ public class Order {
 
 
 
-     public Order(){
+    public Order()
+    {}
 
-     }
     public Order( String productName, String image, String quantity, String price , String idCart, String id) {
         ProductName = productName;
         Image = image;
@@ -23,6 +23,7 @@ public class Order {
         this.id = id;
 
     }
+
 
 
     public String getIdCart() {

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
+            android:name=".Admin.OrderMagagement.OrderManager"
+            android:exported="true" />
+        <activity
             android:name=".OrderStatus"
             android:exported="true" />
         <activity

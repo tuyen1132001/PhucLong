@@ -9,12 +9,11 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.phuclong.Admin.Category.ManageCategory;
+import com.example.phuclong.Admin.OrderMagagement.OrderManager;
 import com.example.phuclong.Admin.Products.ManageProduct;
 
-import com.example.phuclong.model.Order;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -125,6 +124,10 @@ public class Home extends AppCompatActivity{
                     startActivity(intent);
                     finish();
 
+                }
+                if (item.getItemId()==R.id.nav_manegerOrder) {
+                    Intent intent = new Intent(Home.this , OrderManager.class);
+                    startActivity(intent);
 
                 }
 

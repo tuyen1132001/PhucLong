@@ -24,6 +24,11 @@
                 android:id="@+id/nav_manageproduct"
                 android:icon="@drawable/ic_baseline_coffee_24"
                 android:title="Quản lí sản phẩm" />
+            <item
+                android:id="@+id/nav_manegerOrder"
+                android:icon="@drawable/ic_baseline_coffee_24"
+                android:title="Quản lí đơn hàng" />
+
         </menu>
 
     </item>
