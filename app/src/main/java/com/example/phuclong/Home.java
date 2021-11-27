@@ -53,8 +53,8 @@ public class Home extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
 
-     binding = ActivityHomeBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,7 @@ public class Home extends AppCompatActivity{
         View view = navigationView.getHeaderView(0);
         Fullname = (TextView) view.findViewById(R.id.tv_FullName);
 
-      //  Fullname.setText(Common.currentUser.getName());
+        //  Fullname.setText(Common.currentUser.getName());
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -142,7 +142,7 @@ public class Home extends AppCompatActivity{
     }
 
     private void loadcateggory() {
-         adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
+        adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,Reference) {
             @Override
             protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
                 Reference.addValueEventListener(new ValueEventListener() {
