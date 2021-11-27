@@ -64,7 +64,7 @@ public class OrderStatus extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     key = snapshot.getKey();
-                    adapter = new FirebaseRecyclerAdapter<Order,OrderViewHolder>(Order.class,R.layout.order_layout,  OrderViewHolder.class,referencee.child(cartId)) {
+                    adapter = new FirebaseRecyclerAdapter<Order, OrderViewHolder>(Order.class, R.layout.order_layout, OrderViewHolder.class, referencee.child(cartId)) {
                         @Override
                         protected void populateViewHolder(OrderViewHolder orderViewHolder, Order order, int i) {
 
@@ -108,33 +108,32 @@ public class OrderStatus extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.getValue() == null ){
-                            LocalDateTime myDateObj = LocalDateTime.now();
-                            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyMMdd-HHmmss");
-                            String maDonHang = myDateObj.format(myFormatObj);
-
-                            FirebaseDatabase data = FirebaseDatabase.getInstance();
-                            DatabaseReference ref = data.getReference("Cart");
+                        LocalDateTime myDateObj = LocalDateTime.now();
+                        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyMMdd-HHmmss");
+                        String maDonHang = myDateObj.format(myFormatObj);
+                        FirebaseDatabase data = FirebaseDatabase.getInstance();
+                        DatabaseReference ref = data.getReference("Cart");
+                        if (snapshot.getValue() == null) {
                             ref.child(cartId).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @RequiresApi(api = Build.VERSION_CODES.O)
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    int i=0;
+                                    int i = 0;
                                     int sum = 0;
-                                    for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
                                         String datas = dataSnapshot.getValue().toString();
-                                         String ProductName = datas.substring(datas.indexOf("ProductName=")+12 , datas.indexOf(", Price"));
-                                         String Price = datas.substring(datas.indexOf("Price=")+6, datas.indexOf(", Quantity"));
-                                         String Quantity = datas.substring(datas.indexOf("Quantity=")+9, datas.indexOf(", Image"));
-                                         String Image = datas.substring(datas.indexOf("Image=")+6);
-                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("ProductName").setValue(ProductName);
-                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Price").setValue(Price);
-                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Quantity").setValue(Quantity);
-                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Image").setValue(Image);
-                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Total").setValue((Integer.valueOf(Price)*Integer.valueOf(Quantity))+"");
-                                         sum += (Integer.valueOf(Price)*Integer.valueOf(Quantity));
-                                         i++;
+                                        String ProductName = datas.substring(datas.indexOf("ProductName=") + 12, datas.indexOf(", Price"));
+                                        String Price = datas.substring(datas.indexOf("Price=") + 6, datas.indexOf(", Quantity"));
+                                        String Quantity = datas.substring(datas.indexOf("Quantity=") + 9, datas.indexOf(", Image"));
+                                        String Image = datas.substring(datas.indexOf("Image=") + 6);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("ProductName").setValue(ProductName);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Price").setValue(Price);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Quantity").setValue(Quantity);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Image").setValue(Image);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Total").setValue((Integer.valueOf(Price) * Integer.valueOf(Quantity)) + "");
+                                        sum += (Integer.valueOf(Price) * Integer.valueOf(Quantity));
+                                        i++;
 
 
                                     }
@@ -145,13 +144,12 @@ public class OrderStatus extends AppCompatActivity {
                                     referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("IDUser").setValue(cartId);
 
 
-
                                     ref.child(cartId).removeValue();
-                                    Intent intent = new Intent(OrderStatus.this , Home.class);
-                                    intent.putExtra("IDUser",cartId);
+                                    Intent intent = new Intent(OrderStatus.this, Home.class);
+                                    intent.putExtra("IDUser", cartId);
                                     startActivity(intent);
 
-                                    Toast.makeText(OrderStatus.this , "Đặt Hàng Thành Công !!!" , Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OrderStatus.this, "Đặt Hàng Thành Công !!!", Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -160,12 +158,52 @@ public class OrderStatus extends AppCompatActivity {
 
                                 }
                             });
-                        }else {
+                        } else {
+                            ref.child(cartId).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @RequiresApi(api = Build.VERSION_CODES.O)
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    int i = 0;
+                                    int sum = 0;
+                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
+                                        String datas = dataSnapshot.getValue().toString();
+                                        String ProductName = datas.substring(datas.indexOf("ProductName=") + 12, datas.indexOf(", Price"));
+                                        String Price = datas.substring(datas.indexOf("Price=") + 6, datas.indexOf(", Quantity"));
+                                        String Quantity = datas.substring(datas.indexOf("Quantity=") + 9, datas.indexOf(", Image"));
+                                        String Image = datas.substring(datas.indexOf("Image=") + 6);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i) ).child("ProductName").setValue(ProductName);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i) ).child("Price").setValue(Price);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i) ).child("Quantity").setValue(Quantity);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i) ).child("Image").setValue(Image);
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i) ).child("Total").setValue((Integer.valueOf(Price) * Integer.valueOf(Quantity)) + "");
+                                        sum += (Integer.valueOf(Price) * Integer.valueOf(Quantity));
+                                        i++;
+
+
+                                    }
+                                    referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("Address").setValue(address.getText().toString());
+                                    referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("Status").setValue("Chờ Duyệt");
+                                    referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("NumberPhone").setValue(sdt.getText().toString());
+                                    referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("SumTotal").setValue(String.valueOf(sum));
+                                    referOrder.child(maDonHang).child("ThongTinDonHang").child("TTGH").child("IDUser").setValue(cartId);
+
+
+                                    ref.child(cartId).removeValue();
+                                    Intent intent = new Intent(OrderStatus.this, Home.class);
+                                    intent.putExtra("IDUser", cartId);
+                                    startActivity(intent);
+
+                                    Toast.makeText(OrderStatus.this, "Đặt Hàng Thành Công !!!", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                         }
-
-
-
                     }
 
                     @Override
@@ -176,10 +214,6 @@ public class OrderStatus extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
 
     private void maching() {

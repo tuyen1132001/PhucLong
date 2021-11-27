@@ -7,12 +7,15 @@ public class OrderAD {
    String Sdt;
     String Total;
 
-    public OrderAD(String orderID,String address, String status , String sdt,String total ){
+
+    public OrderAD(){}
+
+    public OrderAD(String orderID, String address, String status , String sdt, String total ){
         OrderID = orderID;
         Address = address;
         Status = status;
         Sdt = sdt;
-        Total=total;
+        Total = total;
 
     }
     public String getOrderID() { return OrderID; }
@@ -30,5 +33,7 @@ public class OrderAD {
 
     public String getTotal() { return Total;}
     public void setTotal(String total ) {Total = total ;}
+
+
 }
 

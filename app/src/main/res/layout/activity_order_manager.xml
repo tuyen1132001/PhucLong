@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="409dp"
-        android:layout_height="59dp"
+        android:layout_width="386dp"
+        android:layout_height="58dp"
         android:text="DANH SÁCH ĐƠN HÀNG"
         android:textSize="20sp"
         android:textStyle="bold"

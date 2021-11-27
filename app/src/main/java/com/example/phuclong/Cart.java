@@ -69,9 +69,6 @@ public class Cart extends AppCompatActivity {
         if (!cartId.isEmpty() && cartId != null) {
             loadlistProduct(cartId);
 
-                Intent intent = new Intent(Cart.this, OrderStatus.class);
-                intent.putExtra("Cartid", cartId);
-                startActivity(intent);
 
         }
         Place.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +82,7 @@ public class Cart extends AppCompatActivity {
             }
         });
 
-            }
-        });
+    }
 
     private void loadlistProduct(String cartId) {
         ArrayList<Order> listcart = new ArrayList<>();
@@ -102,7 +98,6 @@ public class Cart extends AppCompatActivity {
 
                     for (DataSnapshot datas : snapshot.getChildren()) {
 
-    }
 
                         id = datas.getKey();
                         Key = datas.getValue().toString();
@@ -121,9 +116,8 @@ public class Cart extends AppCompatActivity {
 
                 }
 
-                }
-
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -160,13 +154,6 @@ public class Cart extends AppCompatActivity {
 //        recyclerView.setAdapter(adapter);
 //
 //        int total = 0;
-//        for(Order order:cart)
-//            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
-//        Locale locale = new Locale("vi","VN");
-//        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-//
-//        TotalPrice.setText(fmt.format(total));
-//          int total = 0;
 //        for(Order order:cart)
 //            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
 //        Locale locale = new Locale("vi","VN");

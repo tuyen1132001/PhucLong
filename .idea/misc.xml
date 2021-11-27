@@ -47,9 +47,12 @@
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_admin.xml" value="0.23278985507246377" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_cart.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_home.xml" value="0.23278985507246377" />
+        <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_info_order.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_main.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_manage_category.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_manage_product.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_order_detail_client.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_order_detail_delete.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_order_management.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_order_manager.xml" value="0.25" />
         <entry key="..\:/Users/buico/AndroidStudioProjects/PhucLong/app/src/main/res/layout/activity_order_status.xml" value="0.23278985507246377" />

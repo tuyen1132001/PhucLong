@@ -13,6 +13,11 @@
             android:icon="@drawable/ic_baseline_account_circle_24"
             android:title="Thông tin tài khoản" />
 
+        <item
+            android:id="@+id/nav_Order"
+            android:icon="@drawable/ic_baseline_coffee_24"
+            android:title="Thông Tin Đơn Hàng " />
+
     </group>
     <item android:title="Admin">
         <menu>

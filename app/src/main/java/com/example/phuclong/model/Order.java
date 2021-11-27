@@ -9,10 +9,9 @@ public class Order {
      String IdCart;
      String id;
 
-
-
     public Order()
-    {}
+    {
+    }
 
     public Order( String productName, String image, String quantity, String price , String idCart, String id) {
         ProductName = productName;

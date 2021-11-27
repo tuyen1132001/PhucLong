@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Phuclong">
         <activity
+            android:name=".Order_Detail_Client"
+            android:exported="true" />
+        <activity
+            android:name=".InfoOrder"
+            android:exported="true" />
+        <activity
+            android:name=".Admin.OrderMagagement.OrderDetail_Delete"
+            android:exported="true" />
+        <activity
             android:name=".Admin.OrderMagagement.OrderManager"
             android:exported="true" />
         <activity
