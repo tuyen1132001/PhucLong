@@ -143,7 +143,7 @@ public class Update_DeleteCategory extends AppCompatActivity {
                     }
                 });
                 databaseReference.child(Categoryid).removeValue();
-                Toast.makeText(Update_DeleteCategory.this,"Xoá thành công thành công",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Update_DeleteCategory.this,"Xoá thành công",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

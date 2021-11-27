@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Order_Detail_Client">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="445dp"
+        android:layout_height="60dp"
+        android:background="#4CAF50"
+        android:fontFamily="sans-serif-medium"
+        android:text="      DETAIL YOUR ORDER"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="419dp"
+        android:layout_height="192dp"
+        android:background="#168C81"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.034">
+
+        <RelativeLayout
+            android:layout_width="416dp"
+            android:layout_height="192dp"
+            android:background="#F6E2E1">
+
+            <RelativeLayout
+                android:layout_width="416dp"
+                android:layout_height="192dp">
+
+                <TextView
+                    android:id="@+id/tv_address_Client"
+                    android:layout_width="278dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="11dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_status_client"
+                    android:layout_width="278dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="104dp"
+                android:layout_height="51dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="ADDRESS :"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="104dp"
+                android:layout_height="51dp"
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="NBPHONE"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="104dp"
+                android:layout_height="51dp"
+                android:layout_below="@+id/textView10"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="6dp"
+                android:text="STATUS"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_phone_client"
+                android:layout_width="278dp"
+                android:layout_height="48dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="13dp"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_Product_Client"
+        android:layout_width="446dp"
+        android:layout_height="318dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.317" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="72dp"
+        android:text="TOTAL:"
+        android:textAlignment="center"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_Total_Client"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Total_Client"
+        android:layout_width="297dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="68dp"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

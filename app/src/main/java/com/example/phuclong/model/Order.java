@@ -3,7 +3,7 @@ package com.example.phuclong.model;
 public class Order {
 
      String Image;
-     String ProductName;
+    String ProductName;
      String Quantity;
      String Price;
      String IdCart;
@@ -11,16 +11,20 @@ public class Order {
 
 
 
-    public Order( String productName, String image, String quantity, String price, String idCart, String id) {
+    public Order()
+    {}
+
+    public Order( String productName, String image, String quantity, String price , String idCart, String id) {
         ProductName = productName;
         Image = image;
         Quantity = quantity;
         Price = price;
         IdCart = idCart;
-
         this.id = id;
 
     }
+
+
 
     public String getIdCart() {
         return IdCart;
@@ -43,6 +47,7 @@ public class Order {
     }
 
     public void setImage(String image) { Image = image; }
+
 
     public String getProductName() {
         return ProductName;
@@ -67,6 +72,7 @@ public class Order {
     public void setPrice(String price) {
         Price = price;
     }
+
 
 
 }
