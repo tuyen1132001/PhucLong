@@ -12,16 +12,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.phuclong.Admin.Cart.ManageCart;
 import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Admin.InfoUser.ManagerInforCustomerActivity;
-import com.example.phuclong.Admin.Order.ManageOrder;
+import com.example.phuclong.Admin.Order.OrderManager;
 import com.example.phuclong.Admin.Products.ManageProduct;
 import com.example.phuclong.databinding.ActivityAdministratorBinding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Administrator extends AppCompatActivity {
@@ -70,7 +68,7 @@ public class Administrator extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(item.getItemId()== R.id.nav_manageorder) {
-                    Intent intent=new Intent(Administrator.this, ManageOrder.class);
+                    Intent intent=new Intent(Administrator.this, OrderManager.class);
                     startActivity(intent);
                 }
                 if(item.getItemId()== R.id.nav_logout) {

@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.View;
 
 
-import com.example.phuclong.Admin.OrderMagagement.OrderDetail_Delete;
-import com.example.phuclong.Admin.OrderMagagement.OrderManager;
 import com.example.phuclong.model.OrderAD;
 import com.example.phuclong.ui.orderViewAd;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -25,16 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class InfoOrder extends AppCompatActivity {
-
     RecyclerView OrderClientList;
     FirebaseDatabase database1;
     DatabaseReference Reference1;
     RecyclerView.LayoutManager layoutManager;
     FirebaseRecyclerAdapter<OrderAD, orderViewAd> adapter;
-
-
-
-
+    String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +38,16 @@ public class InfoOrder extends AppCompatActivity {
         Reference1 = database1.getReference("Order");
 
 
-        OrderClientList.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        OrderClientList.setLayoutManager(layoutManager);
-        loadOrderClient();
-
+        if (getIntent() != null)
+            userid = getIntent().getStringExtra("Userid");
+        if (!userid.isEmpty() && userid != null) {
+            OrderClientList.setHasFixedSize(true);
+            layoutManager = new LinearLayoutManager(this);
+            OrderClientList.setLayoutManager(layoutManager);
+            loadOrderClient();
         }
+
+    }
 
     private void loadOrderClient() {
             adapter = new FirebaseRecyclerAdapter<OrderAD, orderViewAd>(OrderAD.class,R.layout.orderlayoutad,orderViewAd.class,Reference1) {
@@ -68,13 +66,16 @@ public class InfoOrder extends AppCompatActivity {
                                     address = hashMap.get("Address").toString();
                                     phone = hashMap.get("NumberPhone").toString();
                                     status = hashMap.get("Status").toString();
+                                    String user = hashMap.get("IDUser").toString();
+                                    if(user.equals(userid)) {
 
-                                    orderViewAd.OrderID.setText(adapter.getRef(i).getKey());
-                                    orderViewAd.Address.setText(address);
-                                    orderViewAd.Phone.setText(phone);
-                                    orderViewAd.Status.setText(status);
-
-
+                                        orderViewAd.OrderID.setText(adapter.getRef(i).getKey());
+                                        orderViewAd.Address.setText(address);
+                                        orderViewAd.Phone.setText(phone);
+                                        orderViewAd.Status.setText(status);
+                                    }else {
+                                        OrderClientList.setAdapter(null);
+                                    }
 
                                     orderViewAd.setItemclickListener(new ItemClinklistene() {
                                         @Override

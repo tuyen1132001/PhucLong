@@ -13,7 +13,19 @@
         android:theme="@style/Theme.Phuclong">
 
         <activity
-            android:name=".Admin.Order.ManageOrder"
+            android:name=".InfoOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Order.OrderManager"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Order.OrderDetail_Delete"
+            android:exported="false" />
+        <activity
+            android:name=".Order_Detail_Client"
+            android:exported="false" />
+        <activity
+            android:name=".OrderStatus"
             android:exported="false" />
         <activity
             android:name=".Administrator"

@@ -121,6 +121,11 @@ public class Home extends AppCompatActivity{
                     intent.putExtra("View", "User");
                     startActivity(intent);
                 }
+                if(item.getItemId()== R.id.nav_Order) {
+                    Intent intent=new Intent(Home.this,InfoOrder.class);
+                    intent.putExtra("Userid",iduser);
+                    startActivity(intent);
+                }
                 return false;
             }
         });
