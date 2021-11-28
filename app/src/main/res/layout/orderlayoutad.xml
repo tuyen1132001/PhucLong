@@ -23,10 +23,10 @@
 
             <TextView
                 android:id="@+id/tv_Order_ID"
-                android:layout_width="199dp"
+                android:layout_width="259dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="73dp"
+                android:layout_marginStart="60dp"
                 android:layout_marginEnd="1dp"
                 android:layout_toEndOf="@+id/textView17"
                 android:text="MÃ ĐƠN HÀNG"
@@ -37,17 +37,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:text="IDDH :"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="85dp"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView17"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="21dp"
                 android:text="PHONE: "
                 android:textStyle="bold" />
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_Order_ID"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="36dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="14dp"
                 android:layout_toEndOf="@+id/textView18"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView18"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="22dp"
                 android:text="ADDRESS:"
                 android:textStyle="bold" />
@@ -81,7 +81,7 @@
                 android:layout_height="29dp"
                 android:layout_below="@+id/tv_Order_phone"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="48dp"
+                android:layout_marginStart="36dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="42dp"
                 android:layout_toEndOf="@+id/textView19"
@@ -93,7 +93,7 @@
                 android:layout_height="31dp"
                 android:layout_below="@+id/textView19"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="43dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="26dp"
                 android:text="Status"
                 android:textStyle="bold" />

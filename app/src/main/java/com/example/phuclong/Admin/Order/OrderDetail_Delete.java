@@ -3,6 +3,8 @@ package com.example.phuclong.Admin.Order;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,12 +30,12 @@ import java.util.HashMap;
 
 public class OrderDetail_Delete extends AppCompatActivity {
 
-    TextView IDUserDetail, AddressDetail, PhoneDetail, StatusDetail, TotalSumDetail;
+    TextView IDUserDetail, AddressDetail, PhoneDetail, TotalSumDetail;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager recycc;
-    Button cancel, delete;
-    Spinner Status;
-
+    Button cancel, delete,save;
+    AutoCompleteTextView Status;
+    ArrayAdapter<String> adapteritem;
     FirebaseDatabase database1;
     DatabaseReference Reference1;
     String OrderId = "";
@@ -68,6 +70,7 @@ public class OrderDetail_Delete extends AppCompatActivity {
                     String phone = "";
                     String status = "";
                     String Totalsum = "";
+                    String[] itemstatus  = {"Chờ Duyệt","Đã Duyệt", "Đang Giao","Đã Hoàn Thành"};
                     for (DataSnapshot ttct : snapshot.getChildren()) {
                         if (ttct.getKey().equals("ThongTinDonHang")) {
                             HashMap<String, Object> hashMap = (HashMap<String, Object>) snapshot.child(ttct.getKey()).child("TTGH").getValue();
@@ -80,11 +83,14 @@ public class OrderDetail_Delete extends AppCompatActivity {
                             IDUserDetail.setText(IDUser);
                             AddressDetail.setText(address);
                             PhoneDetail.setText(phone);
-                            StatusDetail.setText(status);
+                            Status.setText(status);
                             TotalSumDetail.setText(Totalsum);
 
 
                         }
+                        adapteritem = new ArrayAdapter<String>(OrderDetail_Delete.this,R.layout.list_menu_item,itemstatus);
+                        Status.setAdapter(adapteritem);
+
                     }
                     adapter = new FirebaseRecyclerAdapter<Order, OrderViewHolder>(Order.class, R.layout.order_layout, OrderViewHolder.class, Reference1.child(OrderId).child("Drink")) {
                         @Override
@@ -120,6 +126,14 @@ public class OrderDetail_Delete extends AppCompatActivity {
                     finish();
                 }
             });
+            save.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   String changestatus= Status.getText().toString();
+                    Reference1.child(OrderId).child("ThongTinDonHang").child("TTGH").child("Status").setValue(changestatus);
+                    finish();
+                }
+            });
         }
     }
 
@@ -128,11 +142,11 @@ public class OrderDetail_Delete extends AppCompatActivity {
         IDUserDetail = (TextView) findViewById(R.id.tv_IDUserDetail);
         AddressDetail = (TextView) findViewById(R.id.tv_Order_AddressDetail);
         PhoneDetail = (TextView) findViewById(R.id.tv_Order_PhoneDetail);
-        StatusDetail = (TextView) findViewById(R.id.tv_Order_StatusDetail);
         TotalSumDetail = (TextView) findViewById(R.id.tv_Order_TotalSum);
         cancel = (Button) findViewById(R.id.btn_Order_Cancel);
         delete = (Button) findViewById(R.id.btn_Order_delete);
-        Status = (Spinner) findViewById(R.id.Status_Spiner);
+        save = (Button) findViewById(R.id.btn_Order_save) ;
+        Status = (AutoCompleteTextView) findViewById(R.id.auto_tvstatus);
 
     }
 }

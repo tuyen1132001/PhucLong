@@ -21,64 +21,80 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="408dp"
-        android:layout_height="153dp"
+        android:layout_width="415dp"
+        android:layout_height="227dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="215dp"
+            android:layout_height="230dp"
             android:background="@color/white">
+
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
+                android:layout_height="29dp"
                 android:layout_below="@+id/textView24"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="88dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginBottom="30dp"
                 android:text="TotalSum:"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_Order_TotalSum"
-                android:layout_width="282dp"
-                android:layout_height="25dp"
-                android:layout_below="@+id/tv_Order_StatusDetail"
+                android:layout_width="281dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/auto_tvstatus"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="39dp"
-                android:layout_marginTop="21dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="76dp"
-                android:text="TextView" />
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="33dp"
+                android:text="TextView"
+                tools:ignore="NotSibling" />
 
             <TextView
                 android:id="@+id/textView24"
-                android:layout_width="77dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView23"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="33dp"
                 android:text="Status :"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_Order_StatusDetail"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="157dp"
+                android:layout_height="55dp"
                 android:layout_below="@+id/tv_Order_PhoneDetail"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="6dp"
-                android:text="TextView" />
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:hint="@string/select">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_tvstatus"
+                    android:layout_width="289dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:inputType="none"
+                    android:textSize="13dp">
+
+                </AutoCompleteTextView>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/textView23"
@@ -86,19 +102,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView22"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="17dp"
                 android:text="Phone:"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_Order_PhoneDetail"
-                android:layout_width="284dp"
-                android:layout_height="16dp"
+                android:layout_width="286dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_Order_AddressDetail"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="9dp"
                 android:layout_marginEnd="7dp"
                 android:text="TextView" />
 
@@ -108,8 +124,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView15"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
                 android:text="Address :"
                 android:textStyle="bold" />
 
@@ -119,8 +135,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_IDUserDetail"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="19dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="24dp"
                 android:text="TextView" />
 
             <TextView
@@ -129,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
                 android:text="IDUser :"
                 android:textStyle="bold" />
@@ -141,8 +157,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="27dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="11dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="13dp"
                 android:text="TextView" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -151,12 +167,12 @@
         android:id="@+id/btn_Order_Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
         android:backgroundTint="#009688"
         android:text="Cancel"
         app:layout_constraintEnd_toStartOf="@+id/btn_Order_delete"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_OrderDedetail" />
 
@@ -165,31 +181,35 @@
         android:layout_width="89dp"
         android:layout_height="50dp"
         android:layout_marginEnd="56dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#10A194"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Order_save"
+        app:layout_constraintTop_toBottomOf="@+id/rv_OrderDedetail"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_Order_save"
+        android:layout_width="89dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#10A194"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_OrderDedetail"
-        app:layout_constraintVertical_bias="0.436" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_OrderDedetail"
         android:layout_width="401dp"
         android:layout_height="358dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <Spinner
-        android:id="@+id/Status_Spiner"
-        android:layout_width="395dp"
-        android:layout_height="48dp"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Order_Cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_OrderDedetail"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,33 +50,26 @@ public class InfoOrder extends AppCompatActivity {
     }
 
     private void loadOrderClient() {
-            adapter = new FirebaseRecyclerAdapter<OrderAD, orderViewAd>(OrderAD.class,R.layout.orderlayoutad,orderViewAd.class,Reference1) {
+            adapter = new FirebaseRecyclerAdapter<OrderAD, orderViewAd>(OrderAD.class,R.layout.orderlayoutad,orderViewAd.class,Reference1.orderByChild("ThongTinDonHang/TTGH/IDUser").equalTo(userid)) {
                 @Override
                 protected void populateViewHolder(orderViewAd orderViewAd, OrderAD orderAD, int i) {
-                    Reference1.addValueEventListener(new ValueEventListener() {
+                    Reference1.orderByChild("ThongTinDonHang/TTGH/IDUser").equalTo(userid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String id = adapter.getRef(i).getKey();
                             String address = "";
                             String phone = "";
                             String status = "";
-                            for (DataSnapshot ttdh:snapshot.child(id).getChildren()){
-                                if (ttdh.getKey().equals("ThongTinDonHang")){
-                                    HashMap<String,Object> hashMap = (HashMap<String,Object>) snapshot.child(id).child(ttdh.getKey()).child("TTGH").getValue();
-                                    address = hashMap.get("Address").toString();
-                                    phone = hashMap.get("NumberPhone").toString();
-                                    status = hashMap.get("Status").toString();
+                            try{
+                            HashMap<String,Object> hashMap = (HashMap<String,Object>) snapshot.child(id).child("ThongTinDonHang").child("TTGH").getValue();
+                            address = hashMap.get("Address").toString();
+                            phone = hashMap.get("NumberPhone").toString();
+                            status = hashMap.get("Status").toString();
                                     String user = hashMap.get("IDUser").toString();
-                                    if(user.equals(userid)) {
-
-                                        orderViewAd.OrderID.setText(adapter.getRef(i).getKey());
-                                        orderViewAd.Address.setText(address);
-                                        orderViewAd.Phone.setText(phone);
-                                        orderViewAd.Status.setText(status);
-                                    }else {
-                                        OrderClientList.setAdapter(null);
-                                    }
-
+                                    orderViewAd.OrderID.setText(adapter.getRef(i).getKey());
+                                    orderViewAd.Address.setText(address);
+                                    orderViewAd.Phone.setText(phone);
+                                    orderViewAd.Status.setText(status);
                                     orderViewAd.setItemclickListener(new ItemClinklistene() {
                                         @Override
                                         public void onClick(View view, int pos, boolean islongClick) {
@@ -85,8 +78,10 @@ public class InfoOrder extends AppCompatActivity {
                                             startActivity(intent);
                                         }
                                     });
-                                }
+                            }catch (Exception e){
+                                Log.d("LOI JSON",e.toString());
                             }
+
                         }
 
                         @Override
