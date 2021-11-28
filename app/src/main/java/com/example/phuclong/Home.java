@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.phuclong.Admin.Category.ManageCategory;
@@ -27,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.phuclong.databinding.ActivityHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,10 +36,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 public class Home extends AppCompatActivity{
-    TextView Fullname;
+    TextView Fullname,usermail;
     RecyclerView menu;
     FloatingActionButton fab;
+    ImageView avatar;
 
     FirebaseDatabase database;
     DatabaseReference Reference;
@@ -94,10 +99,34 @@ public class Home extends AppCompatActivity{
         layoutManager = new LinearLayoutManager(this);
         menu.setLayoutManager(layoutManager);
         loadcateggory();
-        View view = navigationView.getHeaderView(0);
-        Fullname = (TextView) view.findViewById(R.id.tv_FullName);
 
-        //  Fullname.setText(Common.currentUser.getName());
+        FirebaseDatabase user = FirebaseDatabase.getInstance();
+        DatabaseReference userdata = user.getReference("InforUser");
+        userdata.child(iduser).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    View headerview = navigationView.getHeaderView(0);
+                    avatar = headerview.findViewById(R.id.img_avatar);
+                    Fullname = headerview.findViewById(R.id.tv_FullName);
+                    usermail = headerview.findViewById(R.id.tv_usermail);
+                    HashMap<String, Object> hashMap = (HashMap<String, Object>) snapshot.getValue();
+                    String name = hashMap.get("Name").toString();
+                    String image = hashMap.get("HinhDaiDien").toString();
+                    String  mail = hashMap.get("Email").toString();
+                    Picasso.with(Home.this).load(image).into(avatar);
+                    Fullname.setText(name);
+                    usermail.setText(mail);
+                }catch (Exception e){
+                    Log.d("Loi JSON", e.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,9 +155,14 @@ public class Home extends AppCompatActivity{
                     intent.putExtra("Userid",iduser);
                     startActivity(intent);
                 }
+                if(item.getItemId()== R.id.nav_logoutuser) {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(Home.this, MainActivity.class));
+                }
                 return false;
             }
         });
+
 
 
 
@@ -179,6 +213,7 @@ public class Home extends AppCompatActivity{
     private void matching() {
         menu = (RecyclerView) findViewById(R.id.rv_menu);
         fab = (FloatingActionButton) findViewById(R.id.fab);
+
 
     }
 
