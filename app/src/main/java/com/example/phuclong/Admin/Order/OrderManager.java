@@ -51,7 +51,7 @@ public class OrderManager extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<OrderAD, orderViewAd>(OrderAD.class, R.layout.orderlayoutad, orderViewAd.class, Referenceee) {
             @Override
             protected void populateViewHolder(orderViewAd orderViewAd, OrderAD orderAD, int i) {
-                Referenceee.addValueEventListener(new ValueEventListener() {
+                Referenceee.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String id = adapter.getRef(i).getKey();

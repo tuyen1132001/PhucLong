@@ -60,8 +60,6 @@ public class OrderDetail_Delete extends AppCompatActivity {
         if (!OrderId.isEmpty()) {
             database1 = FirebaseDatabase.getInstance();
             Reference1 = database1.getReference("Order");
-
-
             Reference1.child(OrderId).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
