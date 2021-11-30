@@ -30,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class SignUp extends AppCompatActivity {
 
@@ -68,16 +69,18 @@ public class SignUp extends AppCompatActivity {
 
                             DocumentReference df = store.collection("Users").document(user.getUid());
                             Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("ID", user.getUid());
                             userInfo.put("Email", Email.getText().toString().trim());
                             userInfo.put("Name", Name.getText().toString().trim());
                             userInfo.put("Phone", Phone.getText().toString().trim());
                             userInfo.put("Password", Password.getText().toString().trim());
 
-                            userInfo.put("User", "1");
+                            userInfo.put("Role", "user");
 
                             df.set(userInfo);
 
                             DatabaseReference dbInfor = FirebaseDatabase.getInstance().getReference("InforUser");
+                            dbInfor.child(user.getUid()).child("ID").setValue(user.getUid());
                             dbInfor.child(user.getUid()).child("Email").setValue(Email.getText().toString().trim());
                             dbInfor.child(user.getUid()).child("Name").setValue(Name.getText().toString().trim());
                             dbInfor.child(user.getUid()).child("Phone").setValue(Phone.getText().toString().trim());

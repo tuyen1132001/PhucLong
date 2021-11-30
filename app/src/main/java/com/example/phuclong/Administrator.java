@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.phuclong.Admin.Acc.ShowActivity;
 import com.example.phuclong.Admin.Cart.ManageCart;
 import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Admin.InfoUser.ManagerInforCustomerActivity;
@@ -121,6 +122,10 @@ public class Administrator extends AppCompatActivity {
                     Intent intent=new Intent(Administrator.this,ProfileUserActivity.class);
                     intent.putExtra("Userid",iduser);
                     intent.putExtra("View", "User");
+                    startActivity(intent);
+                }
+                if(item.getItemId()== R.id.nav_manageaccount) {
+                    Intent intent=new Intent(Administrator.this, ShowActivity.class);
                     startActivity(intent);
                 }
                 return false;

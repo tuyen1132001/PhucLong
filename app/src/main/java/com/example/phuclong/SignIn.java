@@ -74,17 +74,17 @@ public class SignIn extends AppCompatActivity {
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.getString("Admin") != null) {
-                    Intent intent = new Intent(SignIn.this, Administrator.class);
+
+                if (documentSnapshot.getString("Role").equals("user") == true) {
+                    Intent intent = new Intent(SignIn.this, Home.class);
                     intent.putExtra("IDUser",uid);;
                     startActivity(intent);
                     finish();
                 }
-                if (documentSnapshot.getString("User") != null) {
-                    Intent intent = new Intent(SignIn.this,Home.class);
-                    intent.putExtra("IDUser",uid);
+                else {
+                    Intent intent = new Intent(SignIn.this, Administrator.class);
+                    intent.putExtra("IDUser", uid);
                     startActivity(intent);
-
                 }
             }
         });
