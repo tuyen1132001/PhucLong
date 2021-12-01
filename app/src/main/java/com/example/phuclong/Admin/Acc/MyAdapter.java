@@ -21,6 +21,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
@@ -30,8 +33,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private ShowActivity activity;
     private List<ModelAcc> mlist;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
-    private FirebaseUser user = auth.getCurrentUser();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference df = database.getReference("InforUser");
 
     public MyAdapter(ShowActivity activity, List<ModelAcc> mlist) {
         this.activity = activity;
@@ -54,11 +57,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public void deleteData(int position) {
         ModelAcc item = mlist.get(position);
+        String idUser = item.getID();
         db.collection("Users").document(item.getID()).delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isComplete()) {
+//                            database.getReference("InforUser").child(idUser).removeValue();
+                            df.child(idUser).removeValue();
                             notifyRemoved(position);
                             Toast.makeText(activity, "Xóa dữ liệu thành công", Toast.LENGTH_SHORT).show();
                         } else {
@@ -67,6 +73,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     }
                 });
     }
+
+
+
     private void notifyRemoved(int position){
         mlist.remove(position);
         notifyRemoved(position);

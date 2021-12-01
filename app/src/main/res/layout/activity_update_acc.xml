@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="Email"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/et_acc_name"
@@ -42,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="Mật khẩu"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:inputType="textPassword"/>
 
             <EditText
                 android:id="@+id/et_acc_phone"
@@ -50,7 +52,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="Số điện thoại"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:inputType="phone"
+                android:maxLength="10"/>
 
             <EditText
                 android:id="@+id/et_acc_role"
@@ -58,7 +62,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="Role"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:inputType="text"
+                android:maxLength="5"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

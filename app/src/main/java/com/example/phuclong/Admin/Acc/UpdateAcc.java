@@ -20,8 +20,17 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UpdateAcc extends AppCompatActivity {
 
@@ -29,8 +38,8 @@ public class UpdateAcc extends AppCompatActivity {
     String uID, uEmail, uName, uPassword, uPhone, uRole;
     EditText etEmail, etName, etPassword, etPhone, etRole;
     FirebaseFirestore db;
-    FirebaseAuth auth;
-    FirebaseUser user;
+    FirebaseDatabase realtime;
+    DatabaseReference df;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,12 +75,35 @@ public class UpdateAcc extends AppCompatActivity {
                 Bundle bundle1 = getIntent().getExtras();
 
                 updateToFireStore(Id ,Email, Name, Password, Phone, Role);
+                updateToRealTime(Id, Email, Name, Password, Phone, Role);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+    }
+
+    private void updateToRealTime(String id, String email, String name, String password, String phone, String role) {
+        df.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                Map<String, Object> updateInfo = new HashMap<>();
+                updateInfo.put("Email", email);
+                updateInfo.put("Name", name);
+                updateInfo.put("Password", password);
+                updateInfo.put("Phone", phone);
+                updateInfo.put("Role", role);
+
+                df.child(id).updateChildren(updateInfo);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
@@ -113,7 +145,7 @@ public class UpdateAcc extends AppCompatActivity {
         etPhone =(EditText) findViewById(R.id.et_acc_phone);
         etRole = (EditText) findViewById(R.id.et_acc_role);
         db = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
+        realtime = FirebaseDatabase.getInstance();
+        df = realtime.getReference("InforUser");
     }
 }
