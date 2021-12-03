@@ -141,6 +141,7 @@ public class Home extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId()== R.id.nav_home) {
                     Intent intent=new Intent(Home.this,Home.class);
+                    intent.putExtra("IDUser",iduser);
                     startActivity(intent);
                     finish();
                 }
