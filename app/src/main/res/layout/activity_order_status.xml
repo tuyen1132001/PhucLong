@@ -72,16 +72,14 @@
         android:layout_height="39dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:text="SẢN PHẨM"
+        android:layout_marginTop="156dp"
+        android:text="  SẢN PHẨM"
         android:textColor="#0D683B"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/OrderStatus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_sdt"
-        app:layout_constraintVertical_bias="0.786" />
+        app:layout_constraintTop_toBottomOf="@+id/et_sdt" />
 
     <Button
         android:id="@+id/btn_buy"
@@ -104,18 +102,19 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/OrderStatus"
-        android:layout_width="403dp"
-        android:layout_height="256dp"
+        android:layout_width="405dp"
+        android:layout_height="289dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/btn_buy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846"></androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/et_sdt"
+        app:layout_constraintVertical_bias="1.0"></androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
