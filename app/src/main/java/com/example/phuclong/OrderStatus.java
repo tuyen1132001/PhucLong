@@ -131,8 +131,8 @@ public class OrderStatus extends AppCompatActivity {
                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Price").setValue(Price);
                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Quantity").setValue(Quantity);
                                         referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Image").setValue(Image);
-                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Total").setValue((Integer.valueOf(Price) * Integer.valueOf(Quantity)) + "");
-                                        sum += (Integer.valueOf(Price) * Integer.valueOf(Quantity));
+                                        referOrder.child(maDonHang).child("Drink").child(String.valueOf(i)).child("Total").setValue((Integer.valueOf(Price)) + "");
+                                        sum += (Integer.valueOf(Price) );
                                         i++;
 
 
