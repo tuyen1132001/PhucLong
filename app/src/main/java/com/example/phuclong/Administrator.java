@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.phuclong.Admin.Acc.ShowActivity;
-import com.example.phuclong.Admin.Cart.ManageCart;
 import com.example.phuclong.Admin.Category.ManageCategory;
 import com.example.phuclong.Admin.InfoUser.ManagerInforCustomerActivity;
 import com.example.phuclong.Admin.Order.OrderManager;
@@ -104,10 +103,6 @@ public class Administrator extends AppCompatActivity {
                 }
                 if(item.getItemId()== R.id.nav_managecategory) {
                     Intent intent=new Intent(Administrator.this, ManageCategory.class);
-                    startActivity(intent);
-                }
-                if(item.getItemId()== R.id.nav_managecart) {
-                    Intent intent=new Intent(Administrator.this, ManageCart.class);
                     startActivity(intent);
                 }
                 if(item.getItemId()== R.id.nav_manageorder) {

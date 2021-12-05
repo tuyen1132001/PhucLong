@@ -24,10 +24,7 @@
             android:id="@+id/nav_managecategory"
             android:icon="@drawable/ic_baseline_widgets_24"
             android:title="Quản lí danh mục" />
-        <item
-            android:id="@+id/nav_managecart"
-            android:icon="@drawable/ic_baseline_shopping_cart_24"
-            android:title="Quản lí giỏ hàng" />
+
         <item
             android:id="@+id/nav_manageorder"
             android:icon="@drawable/ic_baseline_note_24"

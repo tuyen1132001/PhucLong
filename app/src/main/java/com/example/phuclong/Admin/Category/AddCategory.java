@@ -41,7 +41,6 @@ public class AddCategory extends AppCompatActivity {
         if(extra != null){
             this.size = extra.getInt("size");
         }
-
         storage = FirebaseStorage.getInstance();
         reference=storage.getReference("Category/");
         database = FirebaseDatabase.getInstance();
@@ -71,7 +70,6 @@ public class AddCategory extends AppCompatActivity {
                                     String id = (size+1)+"";
                                     category = new Category(sname,uri.toString());
                                     databaseReference.child(id).setValue(category);
-
                                 }
                             });
                         }

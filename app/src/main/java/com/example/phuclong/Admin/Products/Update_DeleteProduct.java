@@ -113,7 +113,6 @@ public class Update_DeleteProduct extends AppCompatActivity {
                                     product = new Product(sname,uri.toString(),sdescription,sprice,sdiscount,categoryid+"");
                                     databaseReference.child(id).setValue(product);
                                 }
-
                             });
                         }
                     }).addOnFailureListener(e -> {
@@ -137,7 +136,6 @@ public class Update_DeleteProduct extends AppCompatActivity {
                     databaseReference.child(id).setValue(product);
                     Toast.makeText(Update_DeleteProduct.this,"Cập nhập thành công",Toast.LENGTH_SHORT).show();
                     finish();
-
                 };
             }
         });
@@ -174,7 +172,6 @@ public class Update_DeleteProduct extends AppCompatActivity {
         }
         return -1;
     }
-
     private void categorylist() {
         FirebaseDatabase cate = FirebaseDatabase.getInstance();
         DatabaseReference ref = cate.getReference("Category");
@@ -202,7 +199,6 @@ public class Update_DeleteProduct extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -222,6 +218,5 @@ public class Update_DeleteProduct extends AppCompatActivity {
         delete =(Button)findViewById(R.id.btn_update_delete_product_delete);
         imageView =(ImageView) findViewById(R.id.im_update_delete_product);
         menulist = (AutoCompleteTextView) findViewById(R.id.auto_update_delete_product_tvmenulist);
-
     }
 }

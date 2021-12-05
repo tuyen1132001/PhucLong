@@ -108,7 +108,7 @@ public class Cart extends AppCompatActivity {
                         listcart.add(new Order(name, image, soluong, gia, cartId, id + ""));
                         adapter = new CartAdapter(listcart, Cart.this);
                         recyclerView.setAdapter(adapter);
-                        sum += Integer.valueOf(gia) * Integer.valueOf(soluong);
+                        sum += Integer.valueOf(gia) ;
                     }
                     TotalPrice.setText("Total: " + String.valueOf(sum));
                 } else {
@@ -117,8 +117,6 @@ public class Cart extends AppCompatActivity {
                 }
 
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -127,46 +125,6 @@ public class Cart extends AppCompatActivity {
 
     }
 
-
-//            @Override
-//            protected void populateViewHolder(ProductsViewHolder productsViewHolder, Product product, int i) {
-//                cartViewHolder.product_namee.setText(product.getName());
-//                cartViewHolder.product_pricee.setText(product.getPrice());
-//                Picasso.with(getBaseContext()).load(product.getImage()).into(productsViewHolder.product_image);
-//                final  Product local = product;
-//                productsViewHolder.setItemClinklistene(new ItemClinklistene() {
-//                    @Override
-//                    public void onClick(View view, int pos, boolean islongClick) {
-//                        Intent intent = new Intent(Productslist.this,ProductDetail.class);
-//                        intent.putExtra("IDUser",iduser);
-//                        intent.putExtra("productid",adapter.(pos).getKey());
-//                        startActivity(intent);
-//                    }
-
-
-//        if(getIntent()!=null)
-//           Categoryid  = getIntent().getStringExtra("categoryid");
-//        if(!Categoryid.isEmpty()&& Categoryid !=null){
-//            loadProduct(Categoryid);
-//        }
-////        cart = new Database(this).getCart();
-//        adapter = new CartAdapter(cart,this);
-//        recyclerView.setAdapter(adapter);
-//
-//        int total = 0;
-//        for(Order order:cart)
-//            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
-//        Locale locale = new Locale("vi","VN");
-//        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-//
-//        TotalPrice.setText(fmt.format(total));
-//          int total = 0;
-//        for(Order order:cart)
-//            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
-//        Locale locale = new Locale("vi","VN");
-//        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-//
-//        TotalPrice.setText(fmt.format(total));
 
 
     private void matching() {
