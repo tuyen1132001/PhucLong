@@ -112,11 +112,15 @@ public class Home extends AppCompatActivity{
                     usermail = headerview.findViewById(R.id.tv_usermail);
                     HashMap<String, Object> hashMap = (HashMap<String, Object>) snapshot.getValue();
                     String name = hashMap.get("Name").toString();
-                    String image = hashMap.get("HinhDaiDien").toString();
-                    String  mail = hashMap.get("Email").toString();
-                    Picasso.with(Home.this).load(image).into(avatar);
-                    Fullname.setText(name);
-                    usermail.setText(mail);
+                    String mail = hashMap.get("Email").toString();
+                    if(hashMap.size()==6) {
+                        Fullname.setText(name);
+                        usermail.setText(mail);
+                    }else {
+                        Picasso.with(Home.this).load(hashMap.get("HinhDaiDien").toString()).into(avatar);
+                        Fullname.setText(name);
+                        usermail.setText(mail);
+                    }
                 }catch (Exception e){
                     Log.d("Loi JSON", e.toString());
                 }
